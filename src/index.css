@@ -1,13 +1,228 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced Web3 Purple Design System*/
+
+@layer base {
+  :root {
+    /* Base colors - HSL system */
+    --background: 0 0% 100%;
+    --foreground: 258 100% 10%;
+
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 258 100% 10%;
+
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 258 100% 10%;
+
+    /* Primary - Web3 Purple */
+    --primary: 258 100% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 268 100% 75%;
+
+    /* Secondary - Lighter purple */
+    --secondary: 258 30% 95%;
+    --secondary-foreground: 258 100% 25%;
+
+    /* Muted colors */
+    --muted: 258 15% 96%;
+    --muted-foreground: 258 20% 45%;
+
+    /* Accent - Electric purple */
+    --accent: 268 100% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 258 30% 90%;
+    --input: 258 30% 94%;
+    --ring: 258 100% 65%;
+
+    /* Custom Web3 gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(258 100% 65%), hsl(268 100% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(258 30% 95%), hsl(268 20% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(268 100% 70%), hsl(288 100% 75%));
+
+    /* Glass morphism */
+    --glass-bg: hsla(258, 30%, 95%, 0.8);
+    --glass-border: hsla(258, 100%, 65%, 0.2);
+
+    /* Shadows */
+    --shadow-purple: 0 10px 30px -10px hsl(258 100% 65% / 0.3);
+    --shadow-glow: 0 0 40px hsl(268 100% 75% / 0.4);
+    --shadow-card: 0 4px 20px -4px hsl(258 50% 50% / 0.1);
+
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    /* Pattern opacity for subtle background effects */
+    --pattern-opacity: 0.03;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Base colors - dark */
+    --background: 258 50% 6%;
+    --foreground: 0 0% 95%;
+
+    /* Card colors - dark */
+    --card: 258 50% 8%;
+    --card-foreground: 0 0% 95%;
+
+    /* Popover colors - dark */
+    --popover: 258 50% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary - Web3 Purple (brighter in dark) */
+    --primary: 268 100% 75%;
+    --primary-foreground: 258 50% 10%;
+    --primary-glow: 278 100% 80%;
+
+    /* Secondary - Dark purple */
+    --secondary: 258 50% 15%;
+    --secondary-foreground: 0 0% 90%;
+
+    /* Muted colors - dark */
+    --muted: 258 30% 12%;
+    --muted-foreground: 258 20% 65%;
+
+    /* Accent - Electric purple (brighter) */
+    --accent: 278 100% 75%;
+    --accent-foreground: 258 50% 10%;
+
+    /* Destructive - dark */
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 95%;
+
+    /* Borders and inputs - dark */
+    --border: 258 50% 15%;
+    --input: 258 50% 12%;
+    --ring: 268 100% 75%;
+
+    /* Custom Web3 gradients - dark */
+    --gradient-primary: linear-gradient(135deg, hsl(268 100% 75%), hsl(278 100% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(258 50% 15%), hsl(268 30% 20%));
+    --gradient-accent: linear-gradient(135deg, hsl(278 100% 75%), hsl(288 100% 80%));
+
+    /* Glass morphism - dark */
+    --glass-bg: hsla(258, 50%, 10%, 0.8);
+    --glass-border: hsla(268, 100%, 75%, 0.3);
+
+    /* Shadows - dark */
+    --shadow-purple: 0 10px 30px -10px hsl(268 100% 75% / 0.4);
+    --shadow-glow: 0 0 40px hsl(278 100% 80% / 0.5);
+    --shadow-card: 0 4px 20px -4px hsl(258 80% 50% / 0.2);
+
+    /* Pattern opacity for subtle background effects */
+    --pattern-opacity: 0.1;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Enhanced background pattern - responsive to theme */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at 25% 25%, hsl(var(--primary) / var(--pattern-opacity)) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--accent) / calc(var(--pattern-opacity) * 0.5)) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-accent);
+  }
+}
+
+@layer utilities {
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .text-shimmer {
+    background: linear-gradient(90deg,
+        hsl(var(--foreground)) 35%,
+        hsl(var(--primary)) 50%,
+        hsl(var(--foreground))65%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
 }
